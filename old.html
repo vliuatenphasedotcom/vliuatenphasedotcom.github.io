@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Homework 3 - MyWorld Data</title>
+
+    <!-- ADD Libraries-->
+    <script src="libs/d3/d3.min.js" charset="utf-8"></script>
+    <script src="libs/jquery/jquery-2.1.1.min.js" charset="utf-8"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="libs/queue.min.js"></script>
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css">
+
+    <!-- Get some nice font-->
+    <!--<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>-->
+
+    <!-- vis classes-->
+    <script src = "js/multiline.js"></script>
+    <script src = "js/datawrangling.js"></script>
+    <script src = "js/stackedbar.js"></script>
+    <script src = "js/sankey.js"></script>
+    <script src = "js/sankeyvis.js"></script>
+    <!-- <script src="http://d3js.org/queue.v1.min.js"></script> -->
+    <script src="libs/FileSaver.js"></script>
+
+    <!-- stylesheet-->
+    <link rel="stylesheet" type="text/css" href="css/myStyle.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>BUT THE DROUGHT CAME BACK? <br>THE VERY NEXT YEAR!</h1>
+        <h4>Harvard University | CS171 | Final Project</h4>
+        <div class="row">
+                
+                <div class="col-md-4" id="stackedbarVis">
+                <h3>Reservoir Storage and Capacity  </h3>
+                </div>
+                
+                <div class="col-md-8" id="multiLineVis">
+                <h3>Storage Changes Over Time  </h3>
+                </div>
+        </div>
+        <div class="row">
+            <h3>Water Withdraw Diagram </h3>
+            <div class="col-md-12" id="sankeyVis"></div>
+        </div>
+    </div>
+
+<script>
+$(function(){ // this function is called after the HTML document is fully loaded
+
+    // variables keeping global knowledge of the data
+    var allData = [];
+    var resData = [];
+    var metaData = {};
+    var width = 1500;
+    var height = 1500;
+
+    var dateFormatter = d3.time.format("%Y%m%d"); // see: https://github.com/mbostock/d3/wiki/Time-Formatting
+
+    var initVis = function(){    // call this function after Data is loaded, reformatted and bound to the variables
+
+        var MyEventHandler = {};
+        var color = d3.scale.category20();
+
+        MultiLineVis = new MultiLineVis(MyEventHandler,color);
+        StackedBarVis = new StackedBarVis(MyEventHandler,color);
+        SankeyVis = new SankeyVis();
+      
+        //***Data Wrangling
+        Wrangling = new Wrangling();
+
+        $(MyEventHandler).bind("barSelected", function(event, barId){
+            MultiLineVis.barSelected(barId)
+        });
+        $(MyEventHandler).bind("dateChanged", function(event, selDate){
+            StackedBarVis.dateChanged(selDate)
+        });
+    }
+
+    // call this function after both files are loaded -- error should be "null" if no error
+    //var dataLoaded = function (error, _resData, _dicData, _usageData) {
+    var dataLoaded = function (error, _resData, _usageData) {
+        if (!error) {
+
+            //***data wrangling***
+            //resData = Wrangling.resDataWrang(_resData);
+            //usageData = Wrangling.usageDataWrang(_usageData, _dicData)
+            
+            initVis();
+
+            //multipule line chart
+            resDataTop10 = MultiLineVis.PickTop10(_resData);
+            MultiLineVis.createMultiLine(_resData);
+
+            //stacked bar chart
+            StackedBarVis.createStackBar(_resData);
+
+            //sankey chart
+            SankeyVis.createSankey(_usageData);
+        }
+    }
+
+    var startHere = function(){
+
+        // Hint: http://giscollective.org/d3-queue-js/
+        queue()
+            //.defer(d3.json, 'data/json_csv/reservoir.json') // reservoir　data
+            //.defer(d3.json, 'data/storage.json') // reservoir　data
+            .defer(d3.json, 'data/reservoirData_processed.json') //
+            //.defer(d3.csv, 'data/json_csv/datadictionary4.csv') // datadictionary data
+            //.defer(d3.csv, 'data/json_csv/usco2010.csv') // usco2010 data
+            .defer(d3.json, 'data/sankeyData_processed.json') //
+
+            .await(dataLoaded) // calling function
+    }
+
+    //actually procedure starts from here
+    startHere();
+    
+})
+</script>
+</body>
+</html>

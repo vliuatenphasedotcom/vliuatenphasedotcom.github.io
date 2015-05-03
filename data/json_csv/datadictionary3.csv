@@ -1,0 +1,118 @@
+ColumnTag,Data Element,ColumnUse,Source,Type,Use,UseDetail,UseDetail2
+STATE,State postal abbreviation,n,,,,
+STATEFIPS,State FIPS code,n,,,,
+COUNTY,County name,n,,,,
+COUNTYFIPS,County FIPS code,n,,,,
+FIPS,Concatenated State-county FIPS code,n,,,,
+YEAR,Year of data=2010,n,,,,
+TP-TotPop,"Total population of county, in thousands",n,,,,
+PS-GWPop,"Public Supply, population served by groundwater, in thousands",n,,,,
+PS-SWPop,"Public Supply, population served by surface water, in thousands",n,,,,
+PS-TOPop,"Public Supply, total population served, in thousands",n,,,,
+PS-WGWFr,"Public Supply,  groundwater withdrawals, fresh, in Mgal/d",y,Ground,Fresh,Public Supply,N/A,N/A
+PS-WGWSa,"Public Supply, groundwater withdrawals, saline, in Mgal/d",y,Ground,Saline,Public Supply,N/A,N/A
+PS-WGWTo,"Public Supply, groundwater withdrawals, total, in Mgal/d",n,,,,
+PS-WSWFr,"Public Supply, surface-water withdrawals, fresh, in Mgal/d",y,Surface,Fresh,Public Supply,N/A,N/A
+PS-WSWSa,"Public Supply, surface-water withdrawals, saline, in Mgal/d",y,Surface,Saline,Public Supply,N/A,N/A
+PS-WSWTo,"Public Supply, surface-water withdrawals, total, in Mgal/d",n,,,,
+PS-WFrTo,"Public Supply, total withdrawals, fresh, in Mgal/d",n,,,,
+PS-WSaTo,"Public Supply, total withdrawals, saline, in Mgal/d",n,,,,
+PS-Wtotl,"Public Supply, total withdrawals, total (fresh+saline), in Mgal/d",n,,,,
+DO-SSPop,"Domestic, self-supplied population, in thousands",n,,,,
+DO-WGWFr,"Domestic, self-supplied groundwater withdrawals, fresh, in Mgal/d",y,Ground,Fresh,Domestic,N/A,N/A
+DO-WSWFr,"Domestic, self-supplied surface-water withdrawals, fresh, in Mgal/d",y,Surface,Fresh,Domestic,N/A,N/A
+DO-WFrTo,"Domestic, total self-supplied withdrawals, fresh, in Mgal/d",n,,,,
+DO-SSPCp,"Domestic self-supplied per capita use, in gallons/day [DO-WFrTo/DO-SSPop*1000]",n,,,,
+DO-PSDel,"Domestic, deliveries from Public Supply, in Mgal/d",n,,,,
+DO-PSPCp,"Domestic, publicly supplied per capita use, in gallons/day [DO-PSDel/PS-TOPop]",n,,,,
+DO-TOTAL ,"Domestic, total use (withdrawals + deliveries)",n,,,,
+IN-WGWFr,"Industrial, self-supplied groundwater withdrawals, fresh, in Mgal/d",y,Ground,Fresh,Industrial,N/A,N/A
+IN-WGWSa,"Industrial, self-supplied groundwater withdrawals, saline, in Mgal/d",y,Ground,Saline,Industrial,N/A,N/A
+IN-WGWTo,"Industrial, self-supplied groundwater withdrawals, total, in Mgal/d",n,,,,
+IN-WSWFr,"Industrial, self-supplied surface-water withdrawals, fresh, in Mgal/d",y,Surface,Fresh,Industrial,N/A,N/A
+IN-WSWSa,"Industrial, self-supplied surface-water withdrawals, saline, in Mgal/d",y,Surface,Saline,Industrial,N/A,N/A
+IN-WSWTo,"Industrial, self-supplied surface-water withdrawals, total, in Mgal/d",n,,,,
+IN-WFrTo,"Industrial, self-supplied total withdrawals, fresh, in Mgal/d",n,,,,
+IN-WSaTo,"Industrial, self-supplied total withdrawals, saline, in Mgal/d",n,,,,
+IN-Wtotl,"Industrial, self-supplied total withdrawals, total (fresh+saline), in Mgal/d",n,,,,
+IR-WGWFr,"Irrigation, groundwater withdrawals, fresh, in Mgal/d",n,,,,
+IR-WSWFr,"Irrigation, surface-water withdrawals, fresh, in Mgal/d",n,,,,
+IR-WFrTo,"Irrigation, total withdrawals, fresh, in Mgal/d",n,,,,
+IR-IrSpr,"Irrigation, acres irrigated, sprinkler, in thousands",n,,,,
+IR-IrMic,"Irrigation, acres irrigated, microirrigation, in thousands",n,,,,
+IR-IrSur,"Irrigation, acres irrigated, surface (flood), in thousands",n,,,,
+IR-IrTot,"Irrigation, acres irrigated, total, in thousands",n,,,,
+IC-WGWFr,"Irrigation-Crop, groundwater withdrawals, fresh, in Mgal/d",y,Ground,Fresh,Irrigation,Irrigation-Crop,N/A
+IC-WSWFr,"Irrigation-Crop, surface-water withdrawals, fresh, in Mgal/d",y,Surface,Fresh,Irrigation,Irrigation-Crop,N/A
+IC-WFrTo,"Irrigation-Crop, total withdrawals, fresh, in Mgal/d",n,,,,
+IC-IrSpr,"Irrigation-Crop, acres irrigated, sprinkler, in thousands",n,,,,Irrigation-Crop,Sprinkler
+IC-IrMic,"Irrigation-Crop, acres irrigated, microirrigation, in thousands",n,,,,Irrigation-Crop,Micro Irrigation
+IC-IrSur,"Irrigation-Crop, acres irrigated, surface (flood), in thousands",n,,,,Irrigation-Crop,Surface Flood
+IC-IrTot,"Irrigation-Crop, acres irrigated, total, in thousands",n,,,,
+IG-WGWFr,"Irrigation-Golf, groundwater withdrawals, fresh, in Mgal/d",y,Ground,Fresh,Irrigation,Irrigation Golf,N/A
+IG-WSWFr,"Irrigation-Golf, surface-water withdrawals, fresh, in Mgal/d",y,Surface,Fresh,Irrigation,Irrigation Golf,N/A
+IG-WFrTo,"Irrigation-Golf, total withdrawals, fresh, in Mgal/d",n,,,,
+IG-IrSpr,"Irrigation-Golf, acres irrigated, sprinkler, in thousands",n,,,,Irrigation Golf,Sprinkler
+IG-IrMic,"Irrigation-Golf, acres irrigated, microirrigation, in thousands",n,,,,Irrigation Golf,Micro Irrigation
+IG-IrSur,"Irrigation-Golf, acres irrigated, surface (flood), in thousands",n,,,,Irrigation Golf,Surface Flood
+IG-IrTot,"Irrigation-Golf, acres irrigated, total, in thousands",n,,,,
+LI-WGWFr,"Livestock, groundwater withdrawals, fresh, in Mgal/d",y,Ground,Fresh,Livestock,N/A,N/A
+LI-WSWFr,"Livestock, surface-water withdrawals, fresh, in Mgal/d",y,Surface,Fresh,Livestock,N/A,N/A
+LI-WFrTo,"Livestock, total withdrawals, fresh, in Mgal/d",n,,,,
+AQ-WGWFr,"Aquaculture, groundwater withdrawals, fresh, in Mgal/d",y,Ground,Fresh,Aquaculture,N/A,N/A
+AQ-WGWSa,"Aquaculture, groundwater withdrawals, saline, in Mgal/d",y,Ground,Saline,Aquaculture,N/A,N/A
+AQ-WGWTo,"Aquaculture, groundwater withdrawals, total, in Mgal/d",n,,,,
+AQ-WSWFr,"Aquaculture, surface-water withdrawals, fresh, in Mgal/d",y,Surface,Fresh,Aquaculture,N/A,N/A
+AQ-WSWSa,"Aquaculture, surface-water withdrawals, saline, in Mgal/d",y,Surface,Saline,Aquaculture,N/A,N/A
+AQ-WSWTo,"Aquaculture, surface-water withdrawals, total, in Mgal/d",n,,,,
+AQ-WFrTo,"Aquaculture, total withdrawals, fresh, in Mgal/d",n,,,,
+AQ-WSaTo,"Aquaculture, total withdrawals, saline, in Mgal/d",n,,,,
+AQ-WTotl,"Aquaculture, total withdrawals, total (fresh+saline), in Mgal/d",n,,,,
+MI-WGWFr,"Mining, groundwater withdrawals, fresh, in Mgal/d",y,Ground,Fresh,Mining,N/A,N/A
+MI-WGWSa,"Mining, groundwater withdrawals, saline, in Mgal/d",y,Ground,Saline,Mining,N/A,N/A
+MI-WGWTo,"Mining, groundwater withdrawals, total, in Mgal/d",n,,,,
+MI-WSWFr,"Mining, surface-water withdrawals, fresh, in Mgal/d",y,Surface,Fresh,Mining,N/A,N/A
+MI-WSWSa,"Mining, surface-water withdrawals, saline, in Mgal/d",y,Surface,Saline,Mining,N/A,N/A
+MI-WSWTo,"Mining, surface-water withdrawals, total, in Mgal/d",n,,,,
+MI-WFrTo,"Mining, total withdrawals, fresh, in Mgal/d",n,,,,
+MI-WSaTo,"Mining, total withdrawals, saline, in Mgal/d",n,,,,
+MI-Wtotl,"Mining, total withdrawals, total (fresh+saline), in Mgal/d",n,,,,
+PT-WGWFr,"Thermoelectric, groundwater withdrawals, fresh, in Mgal/d",n,,,,
+PT-WGWSa,"Thermoelectric, groundwater withdrawals, saline, in Mgal/d",n,,,,
+PT-WGWTo,"Thermoelectric, groundwater withdrawals, total, in Mgal/d",n,,,,
+PT-WSWFr,"Thermoelectric, surface-water withdrawals, fresh, in Mgal/d",n,,,,
+PT-WSWSa,"Thermoelectric, surface-water withdrawals, saline, in Mgal/d",n,,,,
+PT-WSWTo,"Thermoelectric, surface-water withdrawals, total, in Mgal/d",n,,,,
+PT-WFrTo,"Thermoelectric, total withdrawals, fresh, in Mgal/d",n,,,,
+PT-WSaTo,"Thermoelectric, total withdrawals, saline, in Mgal/d",n,,,,
+PT-Wtotl,"Thermoelectric, total withdrawals, total (fresh+saline), in Mgal/d",n,,,,
+PT-Power,"Thermoelectric, power generated, in gigawatt-hours",n,,,,
+PO-WGWFr,"Thermoelectric once-through, groundwater withdrawals, fresh, in Mgal/d",y,Ground,Fresh,Thermoelectric,Thermoelectric once-through,N/A
+PO-WGWSa,"Thermoelectric once-through, groundwater withdrawals, saline, in Mgal/d",y,Ground,Saline,Thermoelectric,Thermoelectric once-through,N/A
+PO-WGWTo,"Thermoelectric once-through, groundwater withdrawals, total, in Mgal/d",n,,,,
+PO-WSWFr,"Thermoelectric once-through, surface-water withdrawals, fresh, in Mgal/d",y,Surface,Fresh,Thermoelectric,Thermoelectric once-through,N/A
+PO-WSWSa,"Thermoelectric once-through, surface-water withdrawals, saline, in Mgal/d",y,Surface,Saline,Thermoelectric,Thermoelectric once-through,N/A
+PO-WSWTo,"Thermoelectric once-through, surface-water withdrawals, total, in Mgal/d",n,,,,
+PO-WFrTo,"Thermoelectric once-through, total withdrawals, fresh, in Mgal/d",n,,,,
+PO-WSaTo,"Thermoelectric once-through, total withdrawals, saline, in Mgal/d",n,,,,
+PO-WTotl,"Thermoelectric once-through, total withdrawals, total, in Mgal/d",n,,,,
+PO-Power,"Thermoelectric once-through, power generated, in gigawatt-hours",n,,,,
+PC-WGWFr,"Thermoelectric recirculation, groundwater withdrawals, fresh, in Mgal/d",y,Ground,Fresh,Thermoelectric,Thermoelectric recirculation,N/A
+PC-WGWSa,"Thermoelectric recirculation, groundwater withdrawals, saline, in Mgal/d",y,Ground,Saline,Thermoelectric,Thermoelectric recirculation,N/A
+PC-WGWTo,"Thermoelectric recirculation, groundwater withdrawals, total, in Mgal/d",n,,,,
+PC-WSWFr,"Thermoelectric recirculation, surface-water withdrawals, fresh, in Mgal/d",y,Surface,Fresh,Thermoelectric,Thermoelectric recirculation,N/A
+PC-WSWSa,"Thermoelectric recirculation, surface-water withdrawals, saline, in Mgal/d",y,Surface,Saline,Thermoelectric,Thermoelectric recirculation,N/A
+PC-WSWTo,"Thermoelectric recirculation, surface-water withdrawals, total, in Mgal/d",n,,,,
+PC-WFrTo,"Thermoelectric recirculation, total withdrawals, fresh, in Mgal/d",n,,,,
+PC-WSaTo,"Thermoelectric recirculation, total withdrawals, saline, in Mgal/d",n,,,,
+PC-WTotl,"Thermoelectric recirculation, total withdrawals, total (fresh+saline), in Mgal/d",n,,,,
+PC-Power,"Thermoelectric recirculation, power generated, in gigawatt-hours",n,,,,
+TO-WGWFr,"Total groundwater withdrawals, fresh, in Mgal/d",n,,,,
+TO-WGWSa,"Total groundwater withdrawals, saline, in Mgal/d",n,,,,
+TO-WGWTo,"Total groundwater withdrawals, total (fresh+saline), in Mgal/d",n,,,,
+TO-WSWFr,"Total surface-water withdrawals, fresh, in Mgal/d",n,,,,
+TO-WSWSa,"Total surface-water withdrawals, saline, in Mgal/d",n,,,,
+TO-WSWTo,"Total surface-water withdrawals, total (fresh+saline), in Mgal/d",n,,,,
+TO-WFrTo,"Total withdrawals, fresh, in Mgal/d",n,,,,
+TO-WSaTo,"Total withdrawals, saline, in Mgal/d",n,,,,
+TO-WTotl,"Total withdrawals, total (fresh+saline), in Mgal/d",n,,,,

@@ -1,0 +1,306 @@
+[
+	{
+		"ColumnTag": "PS-WGWFr",
+		"Data Element": "Public Supply,  groundwater withdrawals, fresh, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Fresh",
+		"Use": "Public Supply",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "PS-WGWSa",
+		"Data Element": "Public Supply, groundwater withdrawals, saline, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Saline",
+		"Use": "Public Supply",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "PS-WSWFr",
+		"Data Element": "Public Supply, surface-water withdrawals, fresh, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Fresh",
+		"Use": "Public Supply",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "PS-WSWSa",
+		"Data Element": "Public Supply, surface-water withdrawals, saline, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Saline",
+		"Use": "Public Supply",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "DO-WGWFr",
+		"Data Element": "Domestic, self-supplied groundwater withdrawals, fresh, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Fresh",
+		"Use": "Domestic",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "DO-WSWFr",
+		"Data Element": "Domestic, self-supplied surface-water withdrawals, fresh, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Fresh",
+		"Use": "Domestic",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "IN-WGWFr",
+		"Data Element": "Industrial, self-supplied groundwater withdrawals, fresh, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Fresh",
+		"Use": "Industrial",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "IN-WGWSa",
+		"Data Element": "Industrial, self-supplied groundwater withdrawals, saline, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Saline",
+		"Use": "Industrial",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "IN-WSWFr",
+		"Data Element": "Industrial, self-supplied surface-water withdrawals, fresh, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Fresh",
+		"Use": "Industrial",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "IN-WSWSa",
+		"Data Element": "Industrial, self-supplied surface-water withdrawals, saline, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Saline",
+		"Use": "Industrial",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "IR-WGWFr",
+		"Data Element": "Irrigation, groundwater withdrawals, fresh, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Fresh",
+		"Use": "Irrigation",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "IR-WSWFr",
+		"Data Element": "Irrigation, surface-water withdrawals, fresh, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Fresh",
+		"Use": "Irrigation",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "IC-WGWFr",
+		"Data Element": "Irrigation-Crop, groundwater withdrawals, fresh, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Fresh",
+		"Use": "Irrigation-Crop",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "IC-WSWFr",
+		"Data Element": "Irrigation-Crop, surface-water withdrawals, fresh, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Fresh",
+		"Use": "Irrigation-Crop",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "IG-WGWFr",
+		"Data Element": "Irrigation-Golf, groundwater withdrawals, fresh, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Fresh",
+		"Use": "Irrigation Golf",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "IG-WSWFr",
+		"Data Element": "Irrigation-Golf, surface-water withdrawals, fresh, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Fresh",
+		"Use": "Irrigation Golf",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "LI-WGWFr",
+		"Data Element": "Livestock, groundwater withdrawals, fresh, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Fresh",
+		"Use": "Livestock",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "LI-WSWFr",
+		"Data Element": "Livestock, surface-water withdrawals, fresh, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Fresh",
+		"Use": "Livestock",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "AQ-WGWFr",
+		"Data Element": "Aquaculture, groundwater withdrawals, fresh, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Fresh",
+		"Use": "Aquaculture",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "AQ-WGWSa",
+		"Data Element": "Aquaculture, groundwater withdrawals, saline, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Saline",
+		"Use": "Aquaculture",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "AQ-WSWFr",
+		"Data Element": "Aquaculture, surface-water withdrawals, fresh, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Fresh",
+		"Use": "Aquaculture",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "AQ-WSWSa",
+		"Data Element": "Aquaculture, surface-water withdrawals, saline, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Saline",
+		"Use": "Aquaculture",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "MI-WGWFr",
+		"Data Element": "Mining, groundwater withdrawals, fresh, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Fresh",
+		"Use": "Mining",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "MI-WGWSa",
+		"Data Element": "Mining, groundwater withdrawals, saline, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Saline",
+		"Use": "Mining",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "MI-WSWFr",
+		"Data Element": "Mining, surface-water withdrawals, fresh, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Fresh",
+		"Use": "Mining",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "MI-WSWSa",
+		"Data Element": "Mining, surface-water withdrawals, saline, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Saline",
+		"Use": "Mining",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "PT-WGWFr",
+		"Data Element": "Thermoelectric, groundwater withdrawals, fresh, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Fresh",
+		"Use": "Thermoelectric",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "PT-WGWSa",
+		"Data Element": "Thermoelectric, groundwater withdrawals, saline, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Saline",
+		"Use": "Thermoelectric",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "PT-WSWFr",
+		"Data Element": "Thermoelectric, surface-water withdrawals, fresh, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Fresh",
+		"Use": "Thermoelectric",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "PT-WSWSa",
+		"Data Element": "Thermoelectric, surface-water withdrawals, saline, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Saline",
+		"Use": "Thermoelectric",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "PO-WGWFr",
+		"Data Element": "Thermoelectric once-through, groundwater withdrawals, fresh, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Fresh",
+		"Use": "Thermoelectric once-through",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "PO-WGWSa",
+		"Data Element": "Thermoelectric once-through, groundwater withdrawals, saline, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Saline",
+		"Use": "Thermoelectric once-through",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "PO-WSWFr",
+		"Data Element": "Thermoelectric once-through, surface-water withdrawals, fresh, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Fresh",
+		"Use": "Thermoelectric once-through",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "PO-WSWSa",
+		"Data Element": "Thermoelectric once-through, surface-water withdrawals, saline, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Saline",
+		"Use": "Thermoelectric once-through",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "PC-WGWFr",
+		"Data Element": "Thermoelectric recirculation, groundwater withdrawals, fresh, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Fresh",
+		"Use": "Thermoelectric recirculation",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "PC-WGWSa",
+		"Data Element": "Thermoelectric recirculation, groundwater withdrawals, saline, in Mgal/d",
+		"Source": "Ground",
+		"Type": "Saline",
+		"Use": "Thermoelectric recirculation",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "PC-WSWFr",
+		"Data Element": "Thermoelectric recirculation, surface-water withdrawals, fresh, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Fresh",
+		"Use": "Thermoelectric recirculation",
+		"Lvl4": ""
+	},
+	{
+		"ColumnTag": "PC-WSWSa",
+		"Data Element": "Thermoelectric recirculation, surface-water withdrawals, saline, in Mgal/d",
+		"Source": "Surface",
+		"Type": "Saline",
+		"Use": "Thermoelectric recirculation",
+		"Lvl4": ""
+	}
+]

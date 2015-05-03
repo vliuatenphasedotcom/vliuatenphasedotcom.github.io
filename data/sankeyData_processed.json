@@ -1,0 +1,288 @@
+{
+	"nodes": [
+		{
+			"name": "Ground"
+		},
+		{
+			"name": "Fresh"
+		},
+		{
+			"name": "Public Supply"
+		},
+		{
+			"name": "N/A"
+		},
+		{
+			"name": "Saline"
+		},
+		{
+			"name": "Surface"
+		},
+		{
+			"name": "Domestic"
+		},
+		{
+			"name": "Industrial"
+		},
+		{
+			"name": "Irrigation"
+		},
+		{
+			"name": "Irrigation Golf"
+		},
+		{
+			"name": "Livestock"
+		},
+		{
+			"name": "Aquaculture"
+		},
+		{
+			"name": "Mining"
+		},
+		{
+			"name": "Thermoelectric"
+		},
+		{
+			"name": "Thermoelectric once-through"
+		},
+		{
+			"name": "Thermoelectric recirculation"
+		},
+		{
+			"name": "Crop - Sprinkler"
+		},
+		{
+			"name": "Crop - Micro Irrigation"
+		},
+		{
+			"name": "Crop - Surface Flood"
+		}
+	],
+	"links": [
+		{
+			"source": "Ground",
+			"target": "Fresh",
+			"value": 12282.81
+		},
+		{
+			"source": "Fresh",
+			"target": "Public Supply",
+			"value": 6214.43
+		},
+		{
+			"source": "Public Supply",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Ground",
+			"target": "Saline",
+			"value": 368.74
+		},
+		{
+			"source": "Saline",
+			"target": "Public Supply",
+			"value": 84.29
+		},
+		{
+			"source": "Public Supply",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Surface",
+			"target": "Fresh",
+			"value": 18823.289999999994
+		},
+		{
+			"source": "Public Supply",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Surface",
+			"target": "Saline",
+			"value": 6487.339999999999
+		},
+		{
+			"source": "Public Supply",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Fresh",
+			"target": "Domestic",
+			"value": 171.92000000000002
+		},
+		{
+			"source": "Domestic",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Domestic",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Fresh",
+			"target": "Industrial",
+			"value": 400.3999999999999
+		},
+		{
+			"source": "Industrial",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Saline",
+			"target": "Industrial",
+			"value": 0
+		},
+		{
+			"source": "Industrial",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Industrial",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Industrial",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Fresh",
+			"target": "Irrigation",
+			"value": 23056.489999999994
+		},
+		{
+			"source": "Irrigation",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Irrigation",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Irrigation",
+			"target": "Irrigation Golf",
+			"value": 213.06
+		},
+		{
+			"source": "Fresh",
+			"target": "Livestock",
+			"value": 187.79
+		},
+		{
+			"source": "Livestock",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Livestock",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Fresh",
+			"target": "Aquaculture",
+			"value": 973.3399999999999
+		},
+		{
+			"source": "Aquaculture",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Saline",
+			"target": "Aquaculture",
+			"value": 0
+		},
+		{
+			"source": "Aquaculture",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Aquaculture",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Aquaculture",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Fresh",
+			"target": "Mining",
+			"value": 36.36999999999999
+		},
+		{
+			"source": "Mining",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Saline",
+			"target": "Mining",
+			"value": 236.05000000000004
+		},
+		{
+			"source": "Mining",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Mining",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Mining",
+			"target": "N/A",
+			"value": 1
+		},
+		{
+			"source": "Fresh",
+			"target": "Thermoelectric",
+			"value": 65.36000000000001
+		},
+		{
+			"source": "Thermoelectric",
+			"target": "Thermoelectric once-through",
+			"value": 6486.979999999999
+		},
+		{
+			"source": "Saline",
+			"target": "Thermoelectric",
+			"value": 6535.739999999999
+		},
+		{
+			"source": "Thermoelectric",
+			"target": "Thermoelectric recirculation",
+			"value": 114.12000000000002
+		},
+		{
+			"source": "Irrigation",
+			"target": "Crop - Sprinkler",
+			"value": 3822.974089870645
+		},
+		{
+			"source": "Irrigation",
+			"target": "Crop - Micro Irrigation",
+			"value": 6500.685140856602
+		},
+		{
+			"source": "Irrigation",
+			"target": "Crop - Surface Flood",
+			"value": 12732.340769272754
+		}
+	]
+}
