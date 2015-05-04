@@ -231,8 +231,12 @@ http://www.templatemo.com/preview/templatemo_401_sprint
                     <span>
                     	Copyright &copy; 2015 <a href="http://www.harvard.edu/">Harvard University</a> | <a href="http://www.cs171.org/">CS171.org</a> | <a href="
 https://www.linkedin.com/in/bsteineman">Ben Steineman</a> &amp; <a href="
-https://www.linkedin.com/in/swliu">Shiuh-Wuu (Victor) Liu</a><br>Images from <a href="http://www.wired.com/2015/02/lack-rain-one-stories-behind-wests-inevitable-2015-drought/">Wired</a>, <a href="http://www.nbcnews.com/storyline/california-drought/california-drought-crisis-takes-toll-lake-oroville-n185001
-">NBC News</a>, <a href="http://www.dailymail.co.uk/news/article-2731091/California-s-vanishing-lakes-Before-photos-reveal-shocking-shriveling-effect-state-s-devastating-drought-decades.html">Daily Mail</a>, <a href="http://droughtmonitor.unl.edu/MapsAndData/MapArchive.aspx">USDM</a>, <a href="http://droughtmonitor.unl.edu/MapsAndData/MapArchive.aspx">Huffington Post</a>, <a href="http://www.cnn.com/2015/04/08/opinions/sobel-california-drought/">CNN</a><br>Raw data obtained from <a href="http://cida.usgs.gov/ca_drought/">USGS</a> | Original template by <a href="http://www.templatemo.com">templatemo</a>
+https://www.linkedin.com/in/swliu">Shiuh-Wuu (Victor) Liu</a><br>
+
+Images from <a href="http://www.wired.com/2015/02/lack-rain-one-stories-behind-wests-inevitable-2015-drought/">Wired</a>, <a href="http://www.nbcnews.com/storyline/california-drought/california-drought-crisis-takes-toll-lake-oroville-n185001
+">NBC News</a>, <a href="http://www.dailymail.co.uk/news/article-2731091/California-s-vanishing-lakes-Before-photos-reveal-shocking-shriveling-effect-state-s-devastating-drought-decades.html">Daily Mail</a>, <a href="http://droughtmonitor.unl.edu/MapsAndData/MapArchive.aspx">USDM</a>, <a href="http://droughtmonitor.unl.edu/MapsAndData/MapArchive.aspx">Huffington Post</a>, <a href="http://www.cnn.com/2015/04/08/opinions/sobel-california-drought/">CNN</a><br>
+
+Raw data obtained from <a href="http://cida.usgs.gov/ca_drought/">USGS</a> | Original template by <a href="http://www.templatemo.com">templatemo</a>
 
                 </div> <!-- /.col-md-6 -->
                 <div class="col-md-6 col-sm-6">
@@ -260,7 +264,7 @@ https://www.linkedin.com/in/swliu">Shiuh-Wuu (Victor) Liu</a><br>Images from <a 
 <script>
 $(function(){ // this function is called after the HTML document is fully loaded
 
-    // variables keeping global knowledge of the data
+    // define global variables
     var allData = [];
     var resData = [];
     var metaData = {};
@@ -269,7 +273,7 @@ $(function(){ // this function is called after the HTML document is fully loaded
 
     var dateFormatter = d3.time.format("%Y%m%d"); // see: https://github.com/mbostock/d3/wiki/Time-Formatting
 
-    var initVis = function(){    // call this function after Data is loaded, reformatted and bound to the variables
+    var initVis = function(){    // call this function after data is loaded, reformatted and bound to the variables
 
         var MyEventHandler = {};
         var color = d3.scale.category20();
@@ -301,7 +305,7 @@ $(function(){ // this function is called after the HTML document is fully loaded
             
             initVis();
 
-            //multipule line chart
+            //multiple line chart
             resDataTop10 = MultiLineVis.PickTop10(_resData);
             MultiLineVis.createMultiLine(_resData);
 

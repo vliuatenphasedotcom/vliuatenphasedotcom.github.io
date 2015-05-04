@@ -64,9 +64,9 @@ Wrangling.resDataWrang = function(_resData){
     	d.percentage = d3.round(d.storage / totalCapacity, 4) * 100
     })
 
-    //make one data for All reservoir
+    //create a distinct dataset for an aggregation of all reservoir capacity data
 	resData.push({
-		name: "All Reservoir",
+		name: "ALL RESERVOIR AVERAGE",
 	    capacity: totalCapacity,
 	    latitude: 0,
 	    longitude: 0,
@@ -85,7 +85,7 @@ Wrangling.resDataWrang = function(_resData){
 Wrangling.usageDataWrang = function(_usageData, _dicData){
 	var usageData = [];
 
-	//filter by California
+	//filter by state = California
 	filUsageData = _usageData.filter(function(d){ return d.STATE == "CA"})
 	console.log("filterCA: ",filUsageData.length)
 
@@ -99,7 +99,7 @@ Wrangling.usageDataWrang = function(_usageData, _dicData){
 			colLevel5.push(d);
 	})
 
-	//aggregate by all county
+	//aggregate by all counties
 	var agUsageData = {}; 
 	filUsageData.map(function(d){
 		for (var column in d) {
@@ -117,8 +117,8 @@ Wrangling.usageDataWrang = function(_usageData, _dicData){
 	var nodes = [];
 	var tmp = [];
 	colList.map(function(d){
-			//"indexOf"--search word in object, if find the word, return the place, if not, return "-1"
-			//colList has many duplicate words and tmp object will get unique word, no duplicates.
+			//"indexOf"--search word in object, if word is found, then return the place, else, return "-1"
+			//colList has many duplicate words and tmp object will get unique word, no duplicates will be returned.
 			if(tmp.indexOf(d.Source) == -1 && d.Source != "")
 				tmp.push(d.Source)
 			if(tmp.indexOf(d.Type) == -1 && d.Type != "")
@@ -127,14 +127,12 @@ Wrangling.usageDataWrang = function(_usageData, _dicData){
 				tmp.push(d.Use)
 			if(tmp.indexOf(d.UseDetail) == -1 && d.UseDetail != "")
 				tmp.push(d.UseDetail)
-			// if(tmp.indexOf(d.UseDetail2) == -1 && d.UseDetail2 != "")
-			// tmp.push(d.UseDetail2)
 	})
 	tmp.push("Crop - Sprinkler", "Crop - Micro Irrigation", "Crop - Surface Flood"); //for level 5
 
 	debugger;
 
-	//make nodes format for sankey 
+	//make nodes format for Sankey 
 	nodes = tmp.map(function(d){
 		return {
 			"name" : d
@@ -142,7 +140,7 @@ Wrangling.usageDataWrang = function(_usageData, _dicData){
 	})
 	console.log(nodes.length)
 
-	//create Links
+	//create links
 	var links = [];
 	colList.map(function(d){
 
@@ -150,7 +148,7 @@ Wrangling.usageDataWrang = function(_usageData, _dicData){
 		var aggrFlg = false; 
 		links.forEach(function(e){
 
-			//aggregate when source and target are duplicate
+			//aggregate when source and target are duplicated
 			if(d.Source != "N/A" && d.Type != "N/A"){
 				if(e.source == d.Source && e.target == d.Type){
 					e.value += agUsageData[d.ColumnTag];
@@ -166,7 +164,7 @@ Wrangling.usageDataWrang = function(_usageData, _dicData){
 			})
 		}
 
-		//Level 2-3(type to use)
+		//Level 2-3 (Type and Use, respectively)
 		aggrFlg = false; //initialize flag
 		links.forEach(function(e){
 			if(d.Type != "N/A" && d.Use != "N/A"){
@@ -184,7 +182,7 @@ Wrangling.usageDataWrang = function(_usageData, _dicData){
 			})
 		}
 
-		//Level 3-4(use to use detail)
+		//Level 3-4 (Use and UseDetail, respectively)
 		aggrFlg = false; //initialize
 		links.forEach(function(e){
 			if(d.Use != "N/A" && d.UseDetail != "N/A"){

@@ -77,7 +77,7 @@ d3.sankey = function() {
   };
  
   // Populate the sourceLinks and targetLinks for each node.
-  // Also, if the source and target are not objects, assume they are indices.
+  // Also, if the source and target are not objects, assume they that are indices.
   function computeNodeLinks() {
     nodes.forEach(function(node) {
       node.sourceLinks = [];
@@ -262,7 +262,7 @@ d3.sankey = function() {
           y0 = node.y + node.dy + nodePadding;
         }
  
-        // If the bottommost node goes outside the bounds, push it back up.
+        // If the bottom-most node goes outside the bounds, then push it back up.
         dy = y0 - nodePadding - size[1];
         if (dy > 0) {
           y0 = node.y -= dy;

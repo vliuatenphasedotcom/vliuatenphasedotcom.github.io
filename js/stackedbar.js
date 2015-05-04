@@ -5,7 +5,7 @@ StackedBarVis = function(_eventHandler, _color){
 
 StackedBarVis.prototype.filterData = function(_data){
     return _data.filter(function(d){
-        return d.name != "ALL RESERVOIR AVERAGE" && d.capacity != "NA" && d.id != "EXC" ; //"EXC"->strange data
+        return d.name != "ALL RESERVOIR AVERAGE" && d.capacity != "NA" && d.id != "EXC" ; //"EXC"->dirty data
     })
 }
 
@@ -34,7 +34,7 @@ StackedBarVis.prototype.getDateHasData = function(_date){
                 throw BreakException;
             }
         })
-    }catch(e){ //nothing
+    }catch(e){ //no action taken
     }
 
     return (index == 0) ? that.dateList[index] : that.dateList[index - 1];
@@ -48,7 +48,7 @@ StackedBarVis.prototype.reformatData = function(_data, _selectedDate){
     var fmDate = d3.time.format("%x");
     var xAxisDate = fmDate(parseDate(selDate))
 
-    //Data wrangling
+    //data wrangling
     var y0 = 0;
     var y1 = 0;
     var index = -1;
@@ -66,7 +66,7 @@ StackedBarVis.prototype.reformatData = function(_data, _selectedDate){
                         throw BreakException;
                     }
                 })
-            }catch(e){ //nothing
+            }catch(e){ //no action taken
             }
 
             if(index == -1)
@@ -110,7 +110,7 @@ StackedBarVis.prototype.reformatData = function(_data, _selectedDate){
         return d3.descending(a["capacity"], b["capacity"]);
     })
 
-    //Current
+    //current
     //update y0,y1
     var y0 = 0;
     var y1 = 0;
@@ -174,7 +174,7 @@ StackedBarVis.prototype.createStackBar = function(_resData){
         .orient("left")
         .tickFormat(d3.format(".2s"));
 
-    //Tooltips
+    //tooltips
     var tooltip = d3.select("body")
         .append("div")
         .style("position", "absolute")
@@ -191,7 +191,7 @@ StackedBarVis.prototype.createStackBar = function(_resData){
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     this.svg = svg;
 
-      //Data filtering - remove "All reservoir"
+      //data filtering - remove "all reservoir"
       this.filData = this.filterData(oldData)
       this.makeDateList(this.filData);
       var data = this.reformatData(this.filData, "20140916"); //Latest Date in data
@@ -248,7 +248,7 @@ StackedBarVis.prototype.createStackBar = function(_resData){
 
               //change multi line chart
               $(that.eventHandler).trigger("barSelected",d.id);
-              //unClick 
+              //deselect click selection
               this.stateClick = false;
 
               tooltip.transition()        
