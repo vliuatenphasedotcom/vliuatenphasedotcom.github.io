@@ -125,13 +125,13 @@ MultiLineVis.prototype.createMultiLine = function(_allData){
             "stroke-width": "2px"
         })
 
-        //Label "Utilization (%)"
+        //Label "Utilization %"
         svg .append("text")
         .attr("y", -20)
-        .attr("x", 30)
+        .attr("x", 40)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("Utilization (%)");
+        .text("Utilization %");
 
     //draw lines
     var lake = svg.selectAll(".lake")
