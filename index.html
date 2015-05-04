@@ -106,8 +106,8 @@ http://www.templatemo.com/preview/templatemo_401_sprint
                     <div class="row">
                         <div class="col-md-12 text-right">
                             <div class="slider-caption">
-                                <h4>BUT THE DROUGHT CAME BACK? THE VERY NEXT YEAR!</h4>
-                                <h5>Ben Steineman &amp; Shiuh-Wuu (Victor) Liu | Harvard University | CS 171 | Spring 2015</h5>
+                                <h4>&nbsp;BUT THE DROUGHT CAME BACK? THE VERY NEXT YEAR!&nbsp;</h4>
+                                <h5>&nbsp;Ben Steineman &amp; Shiuh-Wuu (Victor) Liu | Harvard University | CS 171 | Spring 2015&nbsp;</h5>
                             </div>
                         </div>
                     </div>
@@ -119,7 +119,7 @@ http://www.templatemo.com/preview/templatemo_401_sprint
                     <div class="row">
                         <div class="col-md-12 text-right">
                             <div class="slider-caption">
-                                <h5>Enterprise Bridge near Lake Oroville which is the 2nd largest reservoir in California</h5>
+                                <h4>&nbsp;Enterprise Bridge near Lake Oroville, the 2nd largest reservoir in California&nbsp;</h4>
                             </div>
                         </div>
                     </div>
@@ -131,7 +131,7 @@ http://www.templatemo.com/preview/templatemo_401_sprint
                     <div class="row">
                         <div class="col-md-12 text-right">
                             <div class="slider-caption">
-                                <h5>Bidwell Marina where once open water shrinks down into increasingly tighter channels</h5>
+                                <h4>&nbsp;Once open water shrinks down into increasingly tighter channels at the Bidwell Marina&nbsp;</h4>
                             </div>
                         </div>
                     </div>
@@ -143,7 +143,7 @@ http://www.templatemo.com/preview/templatemo_401_sprint
                     <div class="row">
                         <div class="col-md-12 text-right">
                             <div class="slider-caption">
-                                <h5>Extracted from the U.S. Drought Monitor map archive which shows worsening drought</h5>
+                                <h4>&nbsp;U.S. Drought Monitor archived maps show worsening drought conditions&nbsp;</h4>
                             </div>
                         </div>
                     </div>
@@ -155,7 +155,7 @@ http://www.templatemo.com/preview/templatemo_401_sprint
                     <div class="row">
                         <div class="col-md-12 text-right">
                             <div class="slider-caption">
-                                <h5>California Governor Jerry Brown announces mandatory statewide California water usage reductions</h5>
+                                <h4>&nbsp;Governor of California, Jerry Brown, announces mandatory water usage reductions&nbsp;</h4>
                             </div>
                         </div>
                     </div>
@@ -231,9 +231,8 @@ http://www.templatemo.com/preview/templatemo_401_sprint
                     <span>
                     	Copyright &copy; 2015 <a href="http://www.harvard.edu/">Harvard University</a> - <a href="http://www.cs171.org/">CS171.org</a> - <a href="
 https://www.linkedin.com/in/bsteineman">Ben Steineman</a> &amp; <a href="
-https://www.linkedin.com/in/swliu">Shiuh-Wuu (Victor) Liu</a><br>Original design by <a href="http://www.templatemo.com">templatemo</a> - Images from <a href="http://www.wired.com/2015/02/lack-rain-one-stories-behind-wests-inevitable-2015-drought/">Wired</a>, <a href="http://www.nbcnews.com/storyline/california-drought/california-drought-crisis-takes-toll-lake-oroville-n185001
-">NBC News</a>, <a href="http://www.dailymail.co.uk/news/article-2731091/California-s-vanishing-lakes-Before-photos-reveal-shocking-shriveling-effect-state-s-devastating-drought-decades.html">Daily Mail</a>, <a href="http://droughtmonitor.unl.edu/MapsAndData/MapArchive.aspx">USDM</a>, <a href="http://droughtmonitor.unl.edu/MapsAndData/MapArchive.aspx">Huffington Post</a>, <a href="http://www.cnn.com/2015/04/08/opinions/sobel-california-drought/">CNN</a>
-                    </span>
+https://www.linkedin.com/in/swliu">Shiuh-Wuu (Victor) Liu</a><br>Images from <a href="http://www.wired.com/2015/02/lack-rain-one-stories-behind-wests-inevitable-2015-drought/">Wired</a>, <a href="http://www.nbcnews.com/storyline/california-drought/california-drought-crisis-takes-toll-lake-oroville-n185001
+">NBC News</a>, <a href="http://www.dailymail.co.uk/news/article-2731091/California-s-vanishing-lakes-Before-photos-reveal-shocking-shriveling-effect-state-s-devastating-drought-decades.html">Daily Mail</a>, <a href="http://droughtmonitor.unl.edu/MapsAndData/MapArchive.aspx">USDM</a>, <a href="http://droughtmonitor.unl.edu/MapsAndData/MapArchive.aspx">Huffington Post</a>, <a href="http://www.cnn.com/2015/04/08/opinions/sobel-california-drought/">CNN</a><br>Raw data obtained from <a href="http://cida.usgs.gov/ca_drought/">USGS</a> - Original template by <a href="http://www.templatemo.com">templatemo</a>
 
                 </div> <!-- /.col-md-6 -->
                 <div class="col-md-6 col-sm-6">
@@ -257,8 +256,6 @@ https://www.linkedin.com/in/swliu">Shiuh-Wuu (Victor) Liu</a><br>Original design
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
     <!-- templatemo 401 sprint -->
-
-
 
 <script>
 $(function(){ // this function is called after the HTML document is fully loaded
@@ -288,7 +285,8 @@ $(function(){ // this function is called after the HTML document is fully loaded
             MultiLineVis.barSelected(barId)
         });
         $(MyEventHandler).bind("dateChanged", function(event, selDate){
-            StackedBarVis.dateChanged(selDate)
+            var shownDate = StackedBarVis.dateChanged(selDate)
+            MultiLineVis.dateChanged(shownDate);
         });
     }
 
@@ -334,7 +332,5 @@ $(function(){ // this function is called after the HTML document is fully loaded
     
 })
 </script>
-
-
 </body>
 </html>

@@ -100,7 +100,7 @@ StackedBarVis.prototype.reformatData = function(_data, _selectedDate){
         total: 0 //temporary
     }]
 
-    console.log("uncounted reservoir,", count)
+    //console.log("uncounted reservoir,", count)
 
      //sorting
     data[0].storages = data[0].storages.sort(function(a, b){
@@ -222,7 +222,7 @@ StackedBarVis.prototype.createStackBar = function(_resData){
           .attr("x", -35)
           .attr("dy", ".71em")
           .style("text-anchor", "start")
-          .text("Storage(acre-ft)");
+          .text("Storage(Acre-ft)");
 
       var bar = svg.selectAll(".g")
         .data(data)
@@ -262,7 +262,7 @@ StackedBarVis.prototype.createStackBar = function(_resData){
               var ent = "<br/>"
               var sp = "&nbsp;&nbsp;&nbsp;"
 
-              tooltip.html(d.name+ent+sp+"Storage : "+ stoTip + "acre-ft" +ent+sp+"Capacity: "+ capTip + "acre-ft" +ent+sp+"Utilization: "+ ratioTip + " %")  //<br/> is return/enter
+              tooltip.html(d.name+ent+sp+"Storage : "+ stoTip + "Acre-ft" +ent+sp+"Capacity: "+ capTip + "Acre-ft" +ent+sp+"Utilization: "+ ratioTip + " %")  //<br/> is return/enter
                   .style("left", (d3.event.pageX + 30) + "px")     
                   .style("top", (d3.event.pageY - 20) + "px");  
 
@@ -315,14 +315,16 @@ StackedBarVis.prototype.dateChanged = function(_date){
     formatDate = d3.time.format("%Y%m%d")
     selDate = formatDate(_date)
 
-    console.log("selected,",selDate);
+    //console.log("selected,",selDate);
 
     //get the closest date has data
     resDate = this.getDateHasData(selDate);
 
-    console.log("showned ,", resDate)
+    //console.log("showned ,", resDate)
 
     this.updateStackBar(resDate);
+
+    return resDate;
 
 }
 

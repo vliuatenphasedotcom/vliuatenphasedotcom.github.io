@@ -91,7 +91,7 @@ MultiLineVis.prototype.createMultiLine = function(_allData){
     this.svg = svg;
 
     var filData = this.filterData(this.data, "SHA");
-    console.log("Fil,", filData)
+    //console.log("Fil,", filData)
 
     x.domain(d3.extent(filData[0].values, function(c){return parseDate(c.date) }))
     y.domain([0,120]);
@@ -167,12 +167,12 @@ MultiLineVis.prototype.updateMultiLine = function(_barId){
     barId = _barId;
     var that = this;
     var parseDate = d3.time.format("%Y%m%d").parse;
-    console.log("bar secected!", barId);
+    //console.log("bar secected!", barId);
 
     if(barId != "N/A"){ //mouse hover
         filData = this.filterData(that.data, barId)
     
-        console.log("upd,", filData)
+        //console.log("upd,", filData)
 
         var lake = that.svg.selectAll(".lake")
                 .data(filData)
@@ -198,6 +198,16 @@ MultiLineVis.prototype.barSelected = function(_barId){
     this.updateMultiLine(_barId)
 }
 
+MultiLineVis.prototype.dateChanged = function(_shownDate){
+    var parseDate = d3.time.format("%Y%m%d").parse;
+    var formatDate = d3.time.format("%x") //mm/dd/yyyy
+
+
+    d3.selectAll(".gsliderHandle")
+        .select("text")
+        .text(formatDate(parseDate(_shownDate)))
+}
+
 MultiLineVis.prototype.addSlider = function(svg){
     var that = this;
     var x = that.x;
@@ -216,8 +226,8 @@ MultiLineVis.prototype.addSlider = function(svg){
 
         d3.selectAll(".gsliderHandle")
             .attr("transform", "translate(" + sliderScale(sliderValue) + ",0)")
-            .select("text")
-            .text(formatDate(selectValue))
+            // .select("text")
+            // .text(formatDate(selectValue))
 
         //change multi line chart
         $(that.eventHandler).trigger("dateChanged",selectValue);  
@@ -287,6 +297,7 @@ MultiLineVis.prototype.addSlider = function(svg){
         opacity: 0
     })
 
+    //Slider Handle Selected Date
     sliderBar.append("text").attr({x: 0, y: 25, "text-anchor" : "middle", "class": "lblDate"
     }).style({fill: "black"
     }).text(formatDate(x.invert(width)))
