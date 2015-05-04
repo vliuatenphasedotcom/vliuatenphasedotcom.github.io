@@ -5,7 +5,7 @@ StackedBarVis = function(_eventHandler, _color){
 
 StackedBarVis.prototype.filterData = function(_data){
     return _data.filter(function(d){
-        return d.name != "All Reservoir" && d.capacity != "NA" && d.id != "EXC" ; //"EXC"->strange data
+        return d.name != "ALL RESERVOIR AVERAGE" && d.capacity != "NA" && d.id != "EXC" ; //"EXC"->strange data
     })
 }
 
@@ -37,22 +37,27 @@ StackedBarVis.prototype.getDateHasData = function(_date){
     }catch(e){ //nothing
     }
 
-    return that.dateList[index - 1];
+    return (index == 0) ? that.dateList[index] : that.dateList[index - 1];
 }
 
 StackedBarVis.prototype.reformatData = function(_data, _selectedDate){
     filData = _data;
     selDate = _selectedDate;
 
+    var parseDate = d3.time.format("%Y%m%d").parse;
+    var fmDate = d3.time.format("%x");
+    var xAxisDate = fmDate(parseDate(selDate))
+
     //Data wrangling
     var y0 = 0;
     var y1 = 0;
     var index = -1;
+    var valForTip = [];
     var count = 0;
     data = 
     [{
-        state: "Storage on selected day",
-        storages: filData.map(function(d) {
+        state: "Storage on " + xAxisDate,
+        storages: filData.map(function(d, i) {
             index = -1;
             try{      
                 d.values.forEach(function(e, i){
@@ -66,6 +71,8 @@ StackedBarVis.prototype.reformatData = function(_data, _selectedDate){
 
             if(index == -1)
                 count++;
+
+            valForTip.push((index != -1) ? +d.values[index].storage : 0)
            
             return {
                 "name": d.name,
@@ -79,13 +86,14 @@ StackedBarVis.prototype.reformatData = function(_data, _selectedDate){
         total: 0 //temporary
     },
     {
-        state: "Storage Capacity",
-        storages: filData.map(function(d) {
+        state: "Capacity",
+        storages: filData.map(function(d, i) {
             return {
                 "name": d.name,
                 "id": d.id,
                 "y0": 0, //temporary
                 "y1": 0, //temporary
+                "value": valForTip[i],
                 "capacity": (!isNaN(d.capacity)) ? +d.capacity : 0
             }
         }),
@@ -117,7 +125,7 @@ StackedBarVis.prototype.reformatData = function(_data, _selectedDate){
     //update total
     data[0].total = y1;
 
-    //Capaity
+    //Capacity
     //update y0,y1
     var y0 = 0;
     var y1 = 0;
@@ -143,7 +151,7 @@ StackedBarVis.prototype.createStackBar = function(_resData){
 
     this.stateClick = false;
 
-    var margin = {top: 50, right: 50, bottom: 30, left: 40},
+    var margin = {top: 20, right: 50, bottom: 30, left: 40},
         width = 400 - margin.left - margin.right,
         height = 600 - margin.top - margin.bottom;
 
@@ -159,11 +167,22 @@ StackedBarVis.prototype.createStackBar = function(_resData){
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom");
+    this.xAxis = xAxis;
 
     var yAxis = d3.svg.axis()
         .scale(y)
         .orient("left")
         .tickFormat(d3.format(".2s"));
+
+    //Tooltips
+    var tooltip = d3.select("body")
+        .append("div")
+        .style("position", "absolute")
+        .style("z-index", "10")
+        .style("opacity", 0)
+        .attr("class","tooltip")
+        .text("Loading");
+    var fcomma = d3.format(",");
 
     var svg = d3.select("#stackedbarVis").append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -198,8 +217,9 @@ StackedBarVis.prototype.createStackBar = function(_resData){
           .attr("class", "y axis")
           .call(yAxis)
         .append("text")
-          .attr("transform", "rotate(-90)")
-          .attr("y", 6)
+          //.attr("transform", "rotate(-90)")
+          .attr("y", -20)
+          .attr("x", 10)
           .attr("dy", ".71em")
           .style("text-anchor", "end")
           .text("Storage");
@@ -230,7 +250,23 @@ StackedBarVis.prototype.createStackBar = function(_resData){
               $(that.eventHandler).trigger("barSelected",d.id);
               //unClick 
               this.stateClick = false;
-              
+
+              tooltip.transition()        
+                  .duration(200)      
+                  .style("opacity", .9);
+
+              var capTip = fcomma(d.capacity.toFixed(0));
+              var stoTip = fcomma(d.value.toFixed(0));
+              var ratioTip = (d.value / d.capacity) * 100; //percentage
+              ratioTip = fcomma(ratioTip.toFixed(0));
+              var ent = "<br/>"
+              var sp = "&nbsp;&nbsp;&nbsp;"
+
+              tooltip.html(d.name+ent+sp+"Storage : "+ stoTip + " Mgal" +ent+sp+"Capacity: "+ capTip + " Mgal" +ent+sp+"Ratio: "+ ratioTip + " %")  //<br/> is return/enter
+                  .style("left", (d3.event.pageX + 30) + "px")     
+                  .style("top", (d3.event.pageY - 20) + "px");  
+
+
           })
           .on("click", function(d){
               this.stateClick = true;
@@ -242,17 +278,12 @@ StackedBarVis.prototype.createStackBar = function(_resData){
                   //change multi line chart
                   $(that.eventHandler).trigger("barSelected","N/A");
               }
+
+              tooltip.transition()        
+                  .duration(200)      
+                  .style("opacity", 0);
+
           });
-
-          //activate all bars
-          // d3.select("body").on("click", function(d){ 
-          //   console.log(d,"click status off")
-            // d3.selectAll(".stuckbar").style("opacity", 1)
-            // //change multi line chart
-            // $(that.eventHandler).trigger("barSelected","N/A");
-            //this.stateClick = false; 
-          //})
-
 }
 
 StackedBarVis.prototype.updateStackBar = function(_date){
@@ -271,6 +302,11 @@ StackedBarVis.prototype.updateStackBar = function(_date){
         .attr("y", function(d) { return that.y(d.y1); 
         })
         .attr("height", function(d) {return parseFloat(that.y(d.y0)) - parseFloat(that.y(d.y1)); })
+
+    // updates domain and axis
+    that.x.domain([data[0].state,data[1].state]);
+    that.svg.select(".x.axis")
+        .call(that.xAxis);
 }
 
 StackedBarVis.prototype.dateChanged = function(_date){

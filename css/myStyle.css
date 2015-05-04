@@ -9,6 +9,10 @@ body{
   shape-rendering: crispEdges;
 }
 
+.tick line{
+  opacity: 0.2;
+}
+
 .x.axis path {
   display: none;
 }
@@ -16,7 +20,7 @@ body{
 .line {
   fill: none;
   stroke: steelblue;
-  stroke-width: 2.5px;
+  stroke-width: 2px;
 }
 
 /*for sankey*/
@@ -39,4 +43,18 @@ body{
  
 .link:hover {
   stroke-opacity: .5;
+}
+
+.tooltip {   
+    line-height: 1;
+    font-weight: normal;
+    padding: 6px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+}
+
+.frame{
+    border-color: red;
+    border-width: 5px;
 }

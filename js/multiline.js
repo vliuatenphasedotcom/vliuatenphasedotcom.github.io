@@ -41,9 +41,9 @@ MultiLineVis.prototype.createMultiLine = function(_allData){
     this.data = _allData;
     var that = this;
 
-    var margin = {top: 20, right: 200, bottom: 30, left: 50},
-        width = 850 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+    var margin = {top: 20, right: 200, bottom: 50, left: 50},
+        width = 950 - margin.left - margin.right,
+        height = 600 - margin.top - margin.bottom;
 
     var parseDate = d3.time.format("%Y%m%d").parse;
 
@@ -57,14 +57,23 @@ MultiLineVis.prototype.createMultiLine = function(_allData){
     this.x = x;
     this.y = y;
     this.width = width;
+    this.height = height;
 
     var xAxis = d3.svg.axis()
         .scale(x)
-        .orient("bottom");
+        .orient("bottom")
+        .ticks(30)
+        .innerTickSize(-height)
+        .outerTickSize(0)
+        //.tickPadding(10);
 
     var yAxis = d3.svg.axis()
         .scale(y)
-        .orient("left");
+        .orient("left")
+        .innerTickSize(-width)
+        .outerTickSize(0)
+        .tickPadding(10);
+
     //calculate total capacity
     var totalCapacity = this.calCapacity(this.data);
 
@@ -84,31 +93,51 @@ MultiLineVis.prototype.createMultiLine = function(_allData){
     var filData = this.filterData(this.data, "SHA");
     console.log("Fil,", filData)
 
-    //x.domain(d3.extent(data, function(c) { return d3.min(c.values, function(v) { return parseDate(v.date); }); }));
-    x.domain([parseDate("20000104"),parseDate("20140916")]);
-
+    x.domain(d3.extent(filData[0].values, function(c){return parseDate(c.date) }))
     y.domain([0,120]);
 
+    var tfm = d3.time.format("%b")
+
+    //X axis
     svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
+        .call(xAxis)
+        .selectAll("text")  
+        .style("text-anchor", "start")
+        .style("opacity", function(d){return (tfm(d) == "Jan") ? 1 : 0})
+        .attr("dx", ".8em")
+        .attr("dy", "-.15em")
+        .style("font-size", "13px")
+        .attr("transform", function(d) {return "rotate(65)"});
 
-    svg.append("g")
+    //Y axis and 100% storage line
+    var ax = svg.append("g")
         .attr("class", "y axis")
         .call(yAxis)
-      .append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
+        .append("line")
+        .attr("x2", width)
+        .attr("y1", y(100))
+        .attr("y2", y(100))
+        .attr("stroke-dasharray", "5, 5")    
+        .style({
+            "stroke": "black",
+            "stroke-width": "2px"
+        })
+
+        //Label "Storage(%)"
+        svg .append("text")
+        .attr("y", -20)
+        .attr("x", 30)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
         .text("Storage(%)");
 
+    //draw lines
     var lake = svg.selectAll(".lake")
         .data(filData)
       .enter().append("g")
         .attr("class", "lake")
-        //.attr("id", function(d){return "L_"+d.id})
         .attr("id", function(d, i){return (i == 0) ? "L_ALL" :"L_OTH"})
         .attr("opacity", 1);
 
@@ -117,7 +146,8 @@ MultiLineVis.prototype.createMultiLine = function(_allData){
         .attr("d", function(d) { return line(d.values); })
         .style("stroke", function(d) { return that.color(d.id); });
 
-    lake.append("text")
+    var label = lake.append("g")
+        .append("text")
         .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
         .attr("transform", function(d) { return "translate(" + x(parseDate(d.value.date)) + "," + y(d.value.percentage) + ")"; })
         .attr("x", 3)
@@ -172,6 +202,8 @@ MultiLineVis.prototype.addSlider = function(svg){
     var that = this;
     var x = that.x;
     var width = that.width; // I don't know why I can't use "that" inside of sliderDragged functionma
+    var height = that.height;
+    var formatDate = d3.time.format("%x") //mm/dd/yyyy
 
     // TODO: Think of what is domain and what is range for the y axis slider !!
     var sliderScale = d3.scale.linear().domain([.1,1]).range([0,width])
@@ -182,12 +214,13 @@ MultiLineVis.prototype.addSlider = function(svg){
         var sliderValue = sliderScale.invert(value);
         var selectValue = x.invert(value);
 
-        d3.selectAll(".sliderHandle").attr("x", function () { return sliderScale(sliderValue); })
-        d3.select(".sliderHandle-bg").attr("x", function () { return sliderScale(sliderValue) - 20; })
+        d3.selectAll(".gsliderHandle")
+            .attr("transform", "translate(" + sliderScale(sliderValue) + ",0)")
+            .select("text")
+            .text(formatDate(selectValue))
 
         //change multi line chart
-        $(that.eventHandler).trigger("dateChanged",selectValue);   
-
+        $(that.eventHandler).trigger("dateChanged",selectValue);  
     }
     var sliderDragBehaviour = d3.behavior.drag()
         .on("drag", sliderDragged)
@@ -201,49 +234,61 @@ MultiLineVis.prototype.addSlider = function(svg){
         class:"sliderBg",
         y:30,
         width: that.width + 5,
-        height:450
+        height:that.height
     }).style({
         fill:"lightgray",
         opacity:0.1
     })
  
-    sliderGroup.append("rect").attr({
-        "class":"sliderHandle-bg",
-        x:sliderScale(1) - 20,
-        y: 11,
-        width:50,
-        height:20,
-        rx:5,
-        ry:5
-    }).style({
-        fill:"red",
-        opacity: 0.3,
-        stroke: "grey"
-    }).call(sliderDragBehaviour)
+    //the part of draging
+    var sliderBar = sliderGroup.append("g")
+                    .attr("class", "gsliderHandle")
+                    .attr("transform", "translate(" + sliderScale(1) + ",0)")
+                    .call(sliderDragBehaviour)
+                    .attr("cursor", "pointer")
 
-    sliderGroup.append("rect").attr({
-        "class":"sliderHandle",
-        x:sliderScale(1),
+    //Slider Handle Rectangle (visible)
+    sliderBar.append("rect").attr({
+        x: -40,
+        y: 11,
+        width:80,
+        height:20,
+        rx:2, //rx is how round
+        ry:2
+    }).style({
+        fill:"salmon",
+        opacity: 0.3,
+        stroke: "red",
+        "stroke-width": "3px"
+    })
+
+    //Slider Handle Bar (visible)
+    sliderBar.append("rect").attr({
+        x: 0,
         y: 30,
-        width:10,
-        height:450,
+        width:5,
+        height:that.height,
         rx:2,
         ry:2
     }).style({
-        fill:"red",
-        opacity: 0.3
+        fill:"salmon",
+        opacity: 0.5
     })
 
-    sliderGroup.append("rect").attr({
-            "class":"sliderHandle-bg",
-            x:sliderScale(1)-20,
+    //Slider Handle Bar (unvisible)
+    sliderBar.append("rect").attr({
+            x: -20,
             y: 30,
             width:40,
-            height:450,
+            height:that.height,
             rx:2,
             ry:2
         }).style({
         opacity: 0
-    }).call(sliderDragBehaviour)
+    })
+
+    sliderBar.append("text").attr({x: 0, y: 25, "text-anchor" : "middle", "class": "lblDate"
+    }).style({fill: "black"
+    }).text(formatDate(x.invert(width)))
 
 }

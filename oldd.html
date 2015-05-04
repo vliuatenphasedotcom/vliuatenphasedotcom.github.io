@@ -35,17 +35,17 @@
         <h4>Harvard University | CS171 | Final Project</h4>
         <div class="row">
                 
-                <div class="col-md-4" id="stackedbarVis">
+                <div class="col-md-4 col-lg-4 col-sm-4" id="stackedbarVis">
                 <h3>Reservoir Storage and Capacity  </h3>
                 </div>
                 
-                <div class="col-md-8" id="multiLineVis">
+                <div class="col-md-8 col-lg-8 col-sm-8" id="multiLineVis">
                 <h3>Storage Changes Over Time  </h3>
                 </div>
         </div>
         <div class="row">
-            <h3>Water Withdraw Diagram </h3>
-            <div class="col-md-12" id="sankeyVis"></div>
+            <h3>Water Withdraw in 2010 </h3>
+            <div class="col-md-12 col-lg-12 col-sm-12" id="sankeyVis"></div>
         </div>
     </div>
 
@@ -111,7 +111,7 @@ $(function(){ // this function is called after the HTML document is fully loaded
             //.defer(d3.json, 'data/json_csv/reservoir.json') // reservoir　data
             //.defer(d3.json, 'data/storage.json') // reservoir　data
             .defer(d3.json, 'data/reservoirData_processed.json') //
-            //.defer(d3.csv, 'data/json_csv/datadictionary4.csv') // datadictionary data
+            //.defer(d3.csv, 'data/json_csv/datadictionary.csv') // datadictionary data
             //.defer(d3.csv, 'data/json_csv/usco2010.csv') // usco2010 data
             .defer(d3.json, 'data/sankeyData_processed.json') //
 
