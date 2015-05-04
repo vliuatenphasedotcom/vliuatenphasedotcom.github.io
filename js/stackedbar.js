@@ -219,10 +219,10 @@ StackedBarVis.prototype.createStackBar = function(_resData){
         .append("text")
           //.attr("transform", "rotate(-90)")
           .attr("y", -20)
-          .attr("x", 10)
+          .attr("x", -35)
           .attr("dy", ".71em")
-          .style("text-anchor", "end")
-          .text("Storage");
+          .style("text-anchor", "start")
+          .text("Storage(acre-ft)");
 
       var bar = svg.selectAll(".g")
         .data(data)
@@ -262,7 +262,7 @@ StackedBarVis.prototype.createStackBar = function(_resData){
               var ent = "<br/>"
               var sp = "&nbsp;&nbsp;&nbsp;"
 
-              tooltip.html(d.name+ent+sp+"Storage : "+ stoTip + " Mgal" +ent+sp+"Capacity: "+ capTip + " Mgal" +ent+sp+"Ratio: "+ ratioTip + " %")  //<br/> is return/enter
+              tooltip.html(d.name+ent+sp+"Storage : "+ stoTip + "acre-ft" +ent+sp+"Capacity: "+ capTip + "acre-ft" +ent+sp+"Utilization: "+ ratioTip + " %")  //<br/> is return/enter
                   .style("left", (d3.event.pageX + 30) + "px")     
                   .style("top", (d3.event.pageY - 20) + "px");  
 

@@ -181,7 +181,31 @@ d3.sankey = function() {
  
       nodesByBreadth.forEach(function(nodes) {
         nodes.forEach(function(node, i) {
-          node.y = i;
+          switch(node.name) {
+              case "N/A":
+                  node.y = 0;
+                  break;
+              case "Irrigation Golf":
+                  node.y = 1;
+                  break;
+              case "Crop - Sprinkler":
+                  node.y = 2;
+                  break;
+              case "Crop - Micro Irrigation":
+                  node.y = 3;
+                  break;
+              case "Crop - Surface Flood":
+                  node.y = 4;
+                  break;
+              case "Thermoelectric once-through":
+                  node.y = 5;
+                  break;
+              case "Thermoelectric recirculation":
+                  node.y = 6;
+                  break;
+              default:
+                  node.y = i;
+          }
           node.dy = node.value * ky;
         });
       });
@@ -256,6 +280,7 @@ d3.sankey = function() {
  
     function ascendingDepth(a, b) {
       return a.y - b.y;
+      //return b.y - a.y;
     }
   }
  
@@ -286,7 +311,8 @@ d3.sankey = function() {
   }
  
   function center(node) {
-    return node.y + node.dy / 2;
+    //return node.y + node.dy / 2;
+    return 0;
   }
  
   function value(link) {
