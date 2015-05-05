@@ -1,6 +1,22 @@
 StackedBarVis = function(_eventHandler, _color){
     this.eventHandler = _eventHandler;
     this.color = _color;
+    this.stateClick = false;
+    this.tip = false;
+}
+
+StackedBarVis.prototype.barClick = function(_status){
+    var that = this;
+
+    if(_status == "click-on-bar" && that.onbar == true)
+        that.stateClick = true;
+    else if(_status == "click-off" && that.onbar == false){
+        d3.selectAll(".stuckbar").style("opacity", 1)
+        //change multi line chart
+        $(that.eventHandler).trigger("barSelected","N/A");
+        that.stateClick = false;
+    }
+
 }
 
 StackedBarVis.prototype.filterData = function(_data){
@@ -149,8 +165,6 @@ StackedBarVis.prototype.createStackBar = function(_resData){
     var oldData = _resData;
     var that = this;
 
-    this.stateClick = false;
-
     var margin = {top: 20, right: 50, bottom: 30, left: 40},
         width = 400 - margin.left - margin.right,
         height = 600 - margin.top - margin.bottom;
@@ -174,7 +188,12 @@ StackedBarVis.prototype.createStackBar = function(_resData){
         .orient("left")
         .tickFormat(d3.format(".2s"));
 
-    //tooltips
+    //Hilight unlocked
+    d3.select("#stackedbarVis").on("click", function(){
+        that.barClick("click-off");
+    })
+
+    //Tooltips
     var tooltip = d3.select("body")
         .append("div")
         .style("position", "absolute")
@@ -191,7 +210,7 @@ StackedBarVis.prototype.createStackBar = function(_resData){
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     this.svg = svg;
 
-      //data filtering - remove "all reservoir"
+      //Data filtering - remove "All reservoir"
       this.filData = this.filterData(oldData)
       this.makeDateList(this.filData);
       var data = this.reformatData(this.filData, "20140916"); //Latest Date in data
@@ -222,7 +241,7 @@ StackedBarVis.prototype.createStackBar = function(_resData){
           .attr("x", -35)
           .attr("dy", ".71em")
           .style("text-anchor", "start")
-          .text("Storage(Acre-ft)");
+          .text("Storage (acre-ft)");
 
       var bar = svg.selectAll(".g")
         .data(data)
@@ -241,15 +260,46 @@ StackedBarVis.prototype.createStackBar = function(_resData){
           .attr("class","stuckbar")
           .attr("id", function(d,i){ return d.id })
           .on("mouseover",function(d,i){ 
+              if(!that.stateClick){
+                  // Highlight bar
+                  d3.selectAll(".stuckbar").style("opacity", 0.3)    
+                  d3.select(this).style("opacity", 1)
+                  d3.selectAll("#"+d.id).style("opacity", 1)
+
+
+                  //change multi line chart
+                  $(that.eventHandler).trigger("barSelected",d.id);
+              } 
+                  tooltip.transition()        
+                      .duration(200)      
+                      .style("opacity", .9);
+
+                  var capTip = fcomma(d.capacity.toFixed(0));
+                  var stoTip = fcomma(d.value.toFixed(0));
+                  var ratioTip = (d.value / d.capacity) * 100; //percentage
+                  ratioTip = fcomma(ratioTip.toFixed(0));
+                  var ent = "<br/>"
+                  var sp = "&nbsp;&nbsp;&nbsp;"
+
+
+                  tooltip.html(d.name+ent+sp+"Storage : "+ stoTip + "&nbsp;acre-ft" +ent+sp+"Capacity: "+ capTip + "&nbsp;acre-ft" +ent+sp+"Utilization: "+ ratioTip + " %")  //<br/> is return/enter
+                      .style("left", (d3.event.pageX + 30) + "px")     
+                      .style("top", (d3.event.pageY - 20) + "px"); 
+
+
+              that.onbar = true;
+          })
+          .on("click", function(d){
+              that.barClick("click-on-bar");
+
               // Highlight bar
               d3.selectAll(".stuckbar").style("opacity", 0.3)    
               d3.select(this).style("opacity", 1)
               d3.selectAll("#"+d.id).style("opacity", 1)
 
+
               //change multi line chart
               $(that.eventHandler).trigger("barSelected",d.id);
-              //deselect click selection
-              this.stateClick = false;
 
               tooltip.transition()        
                   .duration(200)      
@@ -262,29 +312,26 @@ StackedBarVis.prototype.createStackBar = function(_resData){
               var ent = "<br/>"
               var sp = "&nbsp;&nbsp;&nbsp;"
 
-              tooltip.html(d.name+ent+sp+"Storage : "+ stoTip + "Acre-ft" +ent+sp+"Capacity: "+ capTip + "Acre-ft" +ent+sp+"Utilization: "+ ratioTip + " %")  //<br/> is return/enter
+              tooltip.html(d.name+ent+sp+"Storage : "+ stoTip + "&nbsp;acre-ft" +ent+sp+"Capacity: "+ capTip + "&nbsp;acre-ft" +ent+sp+"Utilization: "+ ratioTip + " %")  //<br/> is return/enter
                   .style("left", (d3.event.pageX + 30) + "px")     
-                  .style("top", (d3.event.pageY - 20) + "px");  
-
-
-          })
-          .on("click", function(d){
-              this.stateClick = true;
+                  .style("top", (d3.event.pageY - 20) + "px"); 
           })
           .on("mouseleave",function(){
               //deactivate "mouseleave" when a bar is clicked 
-              if(!this.stateClick){
+              if(!that.stateClick){
                   d3.selectAll(".stuckbar").style("opacity", 1)
                   //change multi line chart
                   $(that.eventHandler).trigger("barSelected","N/A");
               }
 
               tooltip.transition()        
-                  .duration(200)      
-                  .style("opacity", 0);
+              .duration(200)      
+              .style("opacity", 0);
 
-          });
+              that.onbar = false;
+          })
 }
+
 
 StackedBarVis.prototype.updateStackBar = function(_date){
     var that = this;

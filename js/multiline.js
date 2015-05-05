@@ -99,11 +99,15 @@ MultiLineVis.prototype.createMultiLine = function(_allData){
     var tfm = d3.time.format("%b")
 
     //X axis
-    svg.append("g")
+    var xax = svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis)
-        .selectAll("text")  
+        
+    xax.selectAll("line")        
+        .attr("opacity", function(d){return (tfm(d) == "Jan") ? .5 : .2 })
+        
+    xax.selectAll("text")  
         .style("text-anchor", "start")
         .style("opacity", function(d){return (tfm(d) == "Jan") ? 1 : 0})
         .attr("dx", ".8em")
@@ -112,10 +116,14 @@ MultiLineVis.prototype.createMultiLine = function(_allData){
         .attr("transform", function(d) {return "rotate(65)"});
 
     //Y axis and 100% storage line
-    var ax = svg.append("g")
+    var yax = svg.append("g")
         .attr("class", "y axis")
         .call(yAxis)
-        .append("line")
+
+    yax.selectAll("line")        
+        .attr("opacity", .2)
+
+    yax.append("line")
         .attr("x2", width)
         .attr("y1", y(100))
         .attr("y2", y(100))
