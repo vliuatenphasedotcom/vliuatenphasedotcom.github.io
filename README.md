@@ -1,5 +1,7 @@
-#### BUT THE DROUGHT CAME BACK?
-#### THE VERY NEXT YEAR!
+===
+
+# BUT THE DROUGHT CAME BACK?
+# THE VERY NEXT YEAR!
 
 ===
 
@@ -8,9 +10,9 @@ Ben Steineman & Shiuh-Wuu (Victor) Liu
 
 ---
 
-#  Link to Final Project - Website [link](http://vliuatenphasedotcom.github.io/).
+#### Link to Final Project - Website [link](http://vliuatenphasedotcom.github.io/).
 
-#  Link to Final Project - Video [link](https://www.youtube.com/watch?v=t7lqYfZV-rI).
+####  Link to Final Project - Video [link](https://www.youtube.com/watch?v=t7lqYfZV-rI).
 
 **Name**: Ben Steineman & Shiuh-Wuu (Victor) Liu 
 
@@ -43,6 +45,6 @@ There are two separate data vis that make use of interactivity. The first utiliz
 ---
 For more information regarding our Final Project, please refer to our Process Book and Proposal. Feel free to send us an e-mail if you have any questions or comments. Thanks!
 
-# Final Project - Process Book [PDF](http://vliuatenphasedotcom.github.io/Process_Book_Steineman_Liu.pdf).
+#### Final Project - Process Book [PDF](http://vliuatenphasedotcom.github.io/Process_Book_Steineman_Liu.pdf).
 
-# Final Project - Proposal  [PDF](http://vliuatenphasedotcom.github.io/proposal_Steineman_Liu.pdf).
+#### Final Project - Proposal  [PDF](http://vliuatenphasedotcom.github.io/proposal_Steineman_Liu.pdf).
