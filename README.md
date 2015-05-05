@@ -11,10 +11,6 @@ Ben Steineman & Shiuh-Wuu (Victor) Liu
 
 ###  Link to Final Project - Video [link](https://www.youtube.com/watch?v=t7lqYfZV-rI).
 
-###  Link to Final Project - Process Book [link](http://vliuatenphasedotcom.github.io/Process_Book_Steineman_Liu.pdf).
-
-###  Link to Final Project - Proposal  [link](http://vliuatenphasedotcom.github.io/proposal_Steineman_Liu.pdf).
-
 **Name**: Ben Steineman & Shiuh-Wuu (Victor) Liu 
 
 **Email**: bsteineman@gmail.com, vliu@enphaseenergy.com
@@ -39,3 +35,10 @@ stackedbar.js
 ---
 
 There are two separate data vis that make use of interactivity. The first utilizes two stacked bar charts linked with a multiline graph for reservoir utilization data in California from 2010-2014. The second utilizes a Sankey diagram for water withdrawal data in California 2010.
+
+---
+For more information regarding our Final Project, please refer to our Process Book and Proposal. Feel free to send us an e-mail if you have any questions or comments. Thanks!
+
+###  Link to Final Project - Process Book [link](http://vliuatenphasedotcom.github.io/Process_Book_Steineman_Liu.pdf).
+
+###  Link to Final Project - Proposal  [link](http://vliuatenphasedotcom.github.io/proposal_Steineman_Liu.pdf).
