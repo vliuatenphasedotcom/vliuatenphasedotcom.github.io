@@ -6,6 +6,7 @@
 ===
 
 Harvard University | CS171 | Spring 2015 | Final Project | Repository
+
 Ben Steineman & Shiuh-Wuu (Victor) Liu 
 
 ---
@@ -23,19 +24,28 @@ Ben Steineman & Shiuh-Wuu (Victor) Liu
 ### JS Libraries:
 
 jquery-1.10.1.min.js
+
 modernizr-2.6.2.min.js
+
 bootstrap.js
+
 jquery.easing-1.3.js
+
 plugins.js
 
 
 ### Our JS:
 
 datawrangling.js
+
 main.js
+
 multiline.js
+
 sankey.js
+
 sankeyvis.js
+
 stackedbar.js
 
 ---
