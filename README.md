@@ -7,18 +7,14 @@
 
 Harvard University | CS171 | Spring 2015 | Final Project | Repository
 
-Ben Steineman & Shiuh-Wuu (Victor) Liu 
+**Names**: Ben Steineman & Shiuh-Wuu (Victor) Liu 
 
+**Email**: bsteineman@gmail.com, vliu@enphaseenergy.com
 ---
 
 #### Link to Final Project - Website [link](http://vliuatenphasedotcom.github.io/).
 
 ####  Link to Final Project - Video [link](https://www.youtube.com/watch?v=t7lqYfZV-rI).
-
-**Name**: Ben Steineman & Shiuh-Wuu (Victor) Liu 
-
-**Email**: bsteineman@gmail.com, vliu@enphaseenergy.com
-
 ---
 
 ### JS Libraries:
@@ -49,10 +45,12 @@ sankeyvis.js
 stackedbar.js
 
 ---
+###  Data Vis Description:
 
 There are two separate data vis that make use of interactivity. The first utilizes two stacked bar charts linked with a multiline graph for reservoir utilization data in California from 2010-2014. The second utilizes a Sankey diagram for water withdrawal data in California 2010.
 
 ---
+### Documentation:
 For more information regarding our Final Project, please refer to our Process Book and Proposal. Feel free to send us an e-mail if you have any questions or comments. Thanks!
 
 #### Final Project - Process Book [PDF](http://vliuatenphasedotcom.github.io/Process_Book_Steineman_Liu.pdf).
