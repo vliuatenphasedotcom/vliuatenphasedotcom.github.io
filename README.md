@@ -10,6 +10,7 @@ Harvard University | CS171 | Spring 2015 | Final Project | Repository
 **Names**: Ben Steineman & Shiuh-Wuu (Victor) Liu 
 
 **Email**: bsteineman@gmail.com, vliu@enphaseenergy.com
+
 ---
 
 #### Link to Final Project - Website [link](http://vliuatenphasedotcom.github.io/).
