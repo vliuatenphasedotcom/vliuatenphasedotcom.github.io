@@ -15,7 +15,7 @@ Harvard University | CS171 | Spring 2015 | Final Project | Repository
 
 #### Link to Final Project - Website [link](http://vliuatenphasedotcom.github.io/).
 
-####  Link to Final Project - Video [link](https://www.youtube.com/watch?v=t7lqYfZV-rI).
+####  Link to Final Project - Video [link](https://www.youtube.com/watch?v=k8HFoFk3BLk).
 ---
 
 ### JS Libraries:
@@ -31,11 +31,9 @@ jquery.easing-1.3.js
 plugins.js
 
 
-### Our JS:
+### Our JS, CSS:
 
 datawrangling.js
-
-main.js
 
 multiline.js
 
@@ -44,6 +42,8 @@ sankey.js
 sankeyvis.js
 
 stackedbar.js
+
+myStyle.css
 
 ---
 ###  Data Vis Description:
